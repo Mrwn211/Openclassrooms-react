@@ -1,7 +1,7 @@
 import React from 'react'
+import PropTypes from "prop-types"
 
 import './HallOfFame.css'
-import { tsDeclareFunction } from '@babel/types'
 
 const HallOfFame = ({ entries }) => (
   <table className="hallOfFame">
@@ -16,6 +16,17 @@ const HallOfFame = ({ entries }) => (
     </tbody>
   </table>
 )
+
+HallOfFame.propTypes = {
+  entries: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      date: PropTypes.string.isRequired,
+      guesses: PropTypes.number.isRequired,
+      player: PropTypes.string.isRequired,
+    }).isRequired,
+  )
+}
 
 export default HallOfFame
 
